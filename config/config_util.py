@@ -5,10 +5,10 @@ import os
 
 from constant import constant
 
-module_path = os.path.abspath(os.path.join('.'))
+current_path = os.path.dirname(os.path.abspath(__file__))
 config = configparser.ConfigParser()
 
-config.read(module_path + "/config/api_key_config.ini")
+config.read(current_path + "/api_key_config.ini")
 
 
 def get(section, key):
