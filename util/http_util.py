@@ -8,5 +8,6 @@ def get_with_headers(url, headers, payload):
     return requests.request("GET", url, headers=headers, data=payload)
 
 
-def get(utl):
-    return get_with_headers(utl, None, None)
+def get(url):
+    print("url={}".format(url))
+    return get_with_headers(url, None, None)
