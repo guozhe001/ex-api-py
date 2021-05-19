@@ -5,6 +5,7 @@ CONFIG_API = "api"
 CONFIG_API_KEY = "api_key"
 CONFIG_SECRET = "secret"
 CONFIG_SPLIT = "."
+CONFIG_WANTED = "wanted"
 
 # http method相关
 GET = "GET"
@@ -15,6 +16,7 @@ EXCHANGE_OKEX = "okex"
 EXCHANGE_HUOBI = "huobi"
 EXCHANGE_BINANCE = "binance"
 EXCHANGE_COINBASE = "coinbase"
+EXCHANGE_ETHERSCAN = "etherscan"
 
 # 环境
 EVN_TEST = "test"
