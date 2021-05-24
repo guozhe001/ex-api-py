@@ -38,3 +38,23 @@ def get_order_book(symbol):
         }
     """
     return client.get_order_book(symbol=symbol)
+
+
+def get_exchange_info():
+    return client.get_exchange_info()
+
+
+def get_symbol(symbol):
+    return client.get_symbol_info(symbol)
+
+
+def get_kline(symbol, interval, start_time, end_time):
+    """
+    根据交易对获取k线数据
+    :param symbol:
+    :param interval:
+    :param start_time:
+    :param end_time:
+    :return:
+    """
+    return client.get_klines(symbol=symbol, interval=interval, startTime=start_time, endTime=end_time)

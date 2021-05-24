@@ -16,10 +16,15 @@ EXCHANGE_OKEX = "okex"
 EXCHANGE_HUOBI = "huobi"
 EXCHANGE_BINANCE = "binance"
 EXCHANGE_COINBASE = "coinbase"
+
 EXCHANGE_ETHERSCAN = "etherscan"
+EXCHANGE_BSCSCAN = "bscscan"
 
 # 环境
 EVN_TEST = "test"
 EVN_PRO = "pro"
 
 UTF8 = "utf-8"
+
+# ETHEREUM链提供的api
+ETHEREUM = [EXCHANGE_ETHERSCAN, EXCHANGE_BSCSCAN]
