@@ -5,12 +5,12 @@
 ### 安装依赖，指定文件`requirements.txt`
 
 ```shell
-pip3 install -r requirements.txt
+pip3.8 install -r requirements.txt
 ```
 ### 如果依赖有更新，更新`requirements.txt`
 
 ```shell
-pip3 freeze > requirements.txt
+pip3.8 freeze > requirements.txt
 ```
 
 ### bithumb一些注意事项
