@@ -9,10 +9,12 @@ BSCSCAN_API = "https://api.bscscan.com/api"
 # module
 MODULE_CONTRACT = "contract"
 MODULE_TRANSACTION = "transaction"
+MODULE_PROXY = "proxy"
 
 # action
 ACTION_GET_SOURCECODE = "getsourcecode"
 ACTION_GET_TX_RECEIPT_STATUS = "gettxreceiptstatus"
+ACTION_GET_TRANSACTION_BY_HASH = "eth_getTransactionByHash"
 
 # param
 PARAM_MODULE = "?module="
@@ -28,6 +30,7 @@ RESPONSE_KEY_RESULT = "result"
 
 # status code
 SUCCESS_STATUS = "1"
+FAIL_STATUS = "0"
 
 # contact sourcecode result key
 CONTRACT_SOURCECODE_KEY_SOURCECODE = "SourceCode"

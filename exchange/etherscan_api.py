@@ -7,7 +7,7 @@ from constant import etherscan_constant, constant
 from util import http_util, file_util
 
 
-def get_url(ex, module, action, address):
+def get_c_url(ex, module, action, address):
     if module is None:
         raise BaseException("etherscan的module参数不能为空")
     url = etherscan_constant.exchange_api_mapping.get(ex) + "?module=" + module
@@ -26,7 +26,7 @@ def get_url(ex, module, action, address):
 
 
 def get_contract_url(ex, action, address):
-    return get_url(ex, etherscan_constant.MODULE_CONTRACT, action, address)
+    return get_c_url(ex, etherscan_constant.MODULE_CONTRACT, action, address)
 
 
 def contract_code(ex, address):
@@ -111,11 +111,35 @@ def get_tx_url(ex, module, action, txhash):
     return url
 
 
-def get_transaction(ex, txhash):
+def get_url(ex, module, action, params):
+    if module is None:
+        raise BaseException("etherscan的module参数不能为空")
+    url = etherscan_constant.exchange_api_mapping.get(ex) + "?module=" + module
+
+    if action is not None:
+        url = url + etherscan_constant.PARAM_ACTION + action
+
+    for param in params:
+        url = url + param + params[param]
+
+    apikey = get_apikey(ex)
+    if apikey is not None:
+        url = url + etherscan_constant.PARAM_APIKEY + apikey
+
+    return url
+
+
+def check_transaction_receipt_status(ex, txhash):
     url = get_tx_url(ex, etherscan_constant.MODULE_TRANSACTION, etherscan_constant.ACTION_GET_TX_RECEIPT_STATUS, txhash)
     response = http_util.get(url)
-    print(response.text)
-    return response.text
+    return json.loads(response.text)
+
+
+def get_transaction(ex, txhash):
+    url = get_url(ex, etherscan_constant.MODULE_PROXY, etherscan_constant.ACTION_GET_TRANSACTION_BY_HASH,
+                  {etherscan_constant.PARAM_TXHASH: txhash})
+    response = http_util.get(url)
+    return json.loads(response.text)
 
 
 if __name__ == '__main__':
